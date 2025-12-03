@@ -255,6 +255,24 @@ void setup_features(void)
 			while(1);
 		}
 		break;
+	case 0x7:
+		if (cpu_ver >= 0x0) {
+			csr_clear(CSR_MXSTATUS, 0x1);
+			csr_write(CSR_MISELECT,CSR_MNASTATUS);
+			csr_write(CSR_MIREG,0x1e);
+		} else {
+			while(1);
+		}
+		break;
+	case 0x8: 
+		if (cpu_ver >= 0x0) {
+			csr_clear(CSR_MXSTATUS, 0x1);
+			csr_write(CSR_MISELECT,CSR_MNASTATUS);
+			csr_write(CSR_MIREG,0x1e);
+		} else {
+			while(1);
+		}
+		break;
 	default:
 		while(1);
 	}
